@@ -25,7 +25,7 @@
 #import <FYX/FYXTransmitterManager.h>
 #import <QuartzCore/QuartzCore.h>
 #import <FYX/FYXVisitManager.h>
-#import <FYX/FYX.h>                      
+#import <FYX/FYX.h>
 #import "EnableProximityViewController.h"
 
 @interface SightingsTableViewController ()
@@ -33,7 +33,8 @@
 @property (strong, nonatomic) NSMutableArray *transmitters;
 @property (nonatomic) FYXVisitManager *visitManager;
 @property (strong, nonatomic) UIView *noRegisteredTransmittersView;
-
+@property (strong, nonatomic) NSDate *lastOuchDate;
+@property (strong, nonatomic) NSNumber *ouchWarningCount;
 
 @end
 
@@ -42,9 +43,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.lastOuchDate = [NSDate dateWithTimeIntervalSinceNow:-600];
+    self.ouchWarningCount = 0;
     
-
-
+    
     
     // Create the animated spinner view
     self.spinnerImageView = [UIImageView new];
@@ -86,7 +88,7 @@
 
 - (void)initializeVisitManager {
     NSLog(@"#### initializeVisitManager");
-    if (!self.visitManager) {        
+    if (!self.visitManager) {
         self.visitManager = [[FYXVisitManager alloc] init];
         self.visitManager.delegate = self;
     }
@@ -125,7 +127,7 @@
     UIImageView *backgroundImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"background.png"]];
     [self.tableView setBackgroundView:backgroundImageView];
     [self.spinnerImageView stopAnimating];
-
+    
 }
 
 - (void)showNoTransmittersView {
@@ -146,8 +148,8 @@
     [view addSubview:self.spinnerImageView];
     
     [self.tableView setBackgroundView:view];
-
-
+    
+    
 }
 
 
@@ -262,7 +264,7 @@
     return nil;
 }
 
-- (void)initializeTransmitters {        
+- (void)initializeTransmitters {
     // Re-create the transmitters container array
     [self showNoTransmittersView];
     @synchronized(self.transmitters){
@@ -289,7 +291,7 @@
         count =[self.transmitters count];
     }
     if(count == 0){
-       [self showNoTransmittersView];
+        [self showNoTransmittersView];
     }
 }
 
@@ -343,7 +345,7 @@
 }
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-
+    
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         Transmitter *transmitter = [self.transmitters objectAtIndex:indexPath.row];
         [self removeTransmitter:transmitter];
@@ -390,12 +392,61 @@
     }
     
     if ((int)visit.dwellTime % 5 == 0){
+        
         NSString *url = [NSString stringWithFormat:@"http://young-retreat-6253.heroku.com/status?identifier=%@&name=%@&temperature=%@&proximityRSSI=%@&battery=%@",transmitter.identifier,transmitter.name,transmitter.temperature,transmitter.previousRSSI,transmitter.batteryLevel];
         NSString *response = [self getDataFrom:url];
         NSLog(@"****** REQ: %@",url);
         NSLog(@"****** RES: %@",response);
-    }
+        
+        if ([transmitter.temperature integerValue] > 78){
+            if ([transmitter.identifier isEqualToString:@"w9at-e96eq"]){ // bottle's Gimbal ID
+                NSTimeInterval elapsedSinceLastOuch = -[self.lastOuchDate timeIntervalSinceNow];
+                
+                NSLog(@"elapsedSinceLastOuch: %i",(int)elapsedSinceLastOuch);
+                NSLog(@"• • • • • temperature: %i",[transmitter.temperature integerValue]);
+                
+                bool shouldWarn = NO;
+                
+                if (elapsedSinceLastOuch >= 600) {
+                    if ([self.ouchWarningCount integerValue] < 1) {
+                        NSLog(@"••••• OUCH 1");
+                        shouldWarn = YES;
+                        
+                        self.ouchWarningCount = [NSNumber numberWithInt:1];
+                    }
+                }
+                
+                if(elapsedSinceLastOuch >= 606) {
+                    if ([self.ouchWarningCount integerValue] < 2) {
+                        NSLog(@"••••• OUCH 2");
+                        shouldWarn = YES;
+                        
+                        self.ouchWarningCount = [NSNumber numberWithInt:2];
+                    }
+                }
+                
+                if(elapsedSinceLastOuch >= 612) {
+                    NSLog(@"••••• OUCH 3");
+                    shouldWarn = YES;
+                    
+                    self.lastOuchDate = [NSDate date];
+                    self.ouchWarningCount = 0;
+                }
+                
+                if (shouldWarn){
+                    NSString *ouchURL = @"http://young-retreat-6253.heroku.com/ouch";
+                    NSString *ouchResponse = [self getDataFrom:ouchURL];
+                    NSLog(@"***** ouchREQ: %@",ouchURL);
+                    NSLog(@"***** ouchRES: %@",ouchResponse);
+                }
 
+            }
+            
+        }
+        
+    }
+    
+    
     
     transmitter.lastSighted = updateTime;
     if([self shouldUpdateTransmitterCell:visit withTransmitter:transmitter RSSI:RSSI]){
@@ -413,7 +464,7 @@
             }
         }
     }
- }
+}
 
 
 - (NSString *) getDataFrom:(NSString *)url{
