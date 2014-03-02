@@ -64,17 +64,20 @@
                                 </subviews>
                             </view>
                             <view contentMode="scaleToFill" id="BbS-8w-aiS">
-                                <rect key="frame" x="40" y="135" width="240" height="190"/>
+                                <rect key="frame" x="61" y="135" width="201" height="224"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="logo.png" id="4ij-TR-7P9">
-                                        <rect key="frame" x="0.0" y="0.0" width="240" height="190"/>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="logo.png" id="4ij-TR-7P9">
+                                        <rect key="frame" x="-21" y="0.0" width="240" height="190"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="nav_icon_binoculars.png" id="olA-UT-Byd">
-                                        <rect key="frame" x="95" y="43" width="50" height="45"/>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BabyBTLE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" id="XMn-gZ-Lej">
+                                        <rect key="frame" x="8" y="187" width="187" height="42"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
+                                        <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                             </view>
                             <navigationBar hidden="YES" contentMode="scaleToFill" id="Pvi-W2-QTi">
@@ -82,7 +85,7 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <items>
-                                    <navigationItem title="Welcome" id="QFc-k0-orL"/>
+                                    <navigationItem title="Setting up" id="QFc-k0-orL"/>
                                 </items>
                             </navigationBar>
                         </subviews>
@@ -106,7 +109,7 @@
         <scene sceneID="u8D-W5-JxF">
             <objects>
                 <tableViewController id="BzN-KH-Uk9" customClass="SightingsTableViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="110" sectionHeaderHeight="22" sectionFooterHeight="22" id="1aL-tq-nJi">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="320" sectionHeaderHeight="22" sectionFooterHeight="22" id="1aL-tq-nJi">
                         <rect key="frame" x="0.0" y="64" width="320" height="372"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <imageView key="tableHeaderView" userInteractionEnabled="NO" contentMode="scaleToFill" id="xlf-Im-m3y">
@@ -114,49 +117,50 @@
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </imageView>
                         <prototypes>
-                            <tableViewCell alpha="0.0" contentMode="left" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MyReusableCell" rowHeight="115" id="Kje-Ne-k82" customClass="SightingsTableViewCell">
-                                <rect key="frame" x="0.0" y="31" width="320" height="115"/>
+                            <tableViewCell alpha="0.0" contentMode="left" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MyReusableCell" rowHeight="320" id="Kje-Ne-k82" customClass="SightingsTableViewCell">
+                                <rect key="frame" x="0.0" y="31" width="320" height="320"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="115"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="320"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="list_item_bg.png" id="ClG-45-SiY">
-                                            <rect key="frame" x="0.0" y="5" width="320" height="93"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        </imageView>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="bar_track_full.png" id="aaN-WD-wRS">
-                                            <rect key="frame" x="10" y="89" width="270" height="16"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        </imageView>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="6ep-qf-yON">
-                                            <rect key="frame" x="77" y="42" width="230" height="27"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                            <color key="textColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                            <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        </label>
                                         <imageView autoresizesSubviews="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" image="bar_full.png" id="ko3-fQ-wFi">
-                                            <rect key="frame" x="10" y="89" width="270" height="16"/>
+                                            <rect key="frame" x="10" y="238" width="270" height="16"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </imageView>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="avatar_01.png" id="SZm-NQ-krW">
-                                            <rect key="frame" x="19" y="24" width="50" height="50"/>
+                                            <rect key="frame" x="10" y="7" width="301" height="301"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </imageView>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" restorationIdentifier="batteryImageView" image="battery_full.png" id="D1t-FO-vj9">
-                                            <rect key="frame" x="255" y="9" width="51" height="29"/>
+                                            <rect key="frame" x="237" y="283" width="33" height="17"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </imageView>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="°F" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="T57-5z-6U4">
-                                            <rect key="frame" x="205" y="13" width="42" height="21"/>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="6ep-qf-yON">
+                                            <rect key="frame" x="20" y="264" width="209" height="39"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="12"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                                            <color key="textColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </label>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" id="T57-5z-6U4">
+                                            <rect key="frame" x="10" y="159" width="301" height="107"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <attributedString key="attributedText">
+                                                <fragment content="°F">
+                                                    <attributes>
+                                                        <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                        <font key="NSFont" size="96" name="ArialRoundedMTBold"/>
+                                                        <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="truncatingTail" baseWritingDirection="natural"/>
+                                                    </attributes>
+                                                </fragment>
+                                            </attributedString>
+                                            <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="shadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <size key="shadowOffset" width="0.0" height="3"/>
+                                        </label>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="qVB-oP-SRt">
-                                            <rect key="frame" x="281" y="89" width="29" height="16"/>
+                                            <rect key="frame" x="277" y="283" width="29" height="16"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
@@ -219,13 +223,10 @@
         </scene>
     </scenes>
     <resources>
-        <image name="avatar_01.png" width="50" height="50"/>
+        <image name="avatar_01.png" width="144" height="144"/>
         <image name="bar_full.png" width="300" height="15"/>
-        <image name="bar_track_full.png" width="300" height="15"/>
         <image name="battery_full.png" width="32" height="17"/>
-        <image name="list_item_bg.png" width="320" height="93"/>
-        <image name="logo.png" width="240" height="190"/>
-        <image name="nav_icon_binoculars.png" width="50" height="44"/>
+        <image name="logo.png" width="144" height="144"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>

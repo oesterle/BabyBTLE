@@ -160,13 +160,13 @@
     float rssiValue = [rssi floatValue];
     float barWidth;
     if (rssiValue >= barMaxValue) {
-        barWidth = 270.0f;
+        barWidth = 50.0f;
     } else if (rssiValue <= barMinValue) {
         barWidth = 5.0f;
     } else {
         NSInteger barRange = barMaxValue - barMinValue;
         float percentage = (barMaxValue - rssiValue) / (float)barRange;
-        barWidth = (1.0f - percentage) * 270.0f;
+        barWidth = (1.0f - percentage) * 50.0f;
     }
     return barWidth;
 }
@@ -176,7 +176,7 @@
     NSInteger barMinValue = [[NSUserDefaults standardUserDefaults] integerForKey:@"rssi_bar_min_value"];
     
     NSInteger barRange = barMaxValue - barMinValue;
-    float percentage = - ((barWidth / 270.0f) - 1.0f);
+    float percentage = - ((barWidth / 50.0f) - 1.0f);
     float rssiValue = - ((percentage * (float)barRange) - barMaxValue);
     
     return [NSNumber numberWithFloat:rssiValue];
@@ -221,7 +221,7 @@
             
             // Animate updating the RSSI indicator bar
             sightingsCell.rssiImageView.frame = oldFrame;
-            [UIView animateWithDuration:1.0f animations:^{
+            [UIView animateWithDuration:0.2f animations:^{
                 sightingsCell.rssiImageView.frame = newFrame;
             }];
             sightingsCell.isGrayedOut = NO;
@@ -387,8 +387,12 @@
         transmitter.previousRSSI = transmitter.rssi;
         transmitter.batteryLevel = 0;
         transmitter.temperature = 0;
-        [self addTransmitter:transmitter];
-        [self.tableView reloadData];
+        
+        // for now, restrict transmitters to just a single Gimbal: the "bottle"
+        if ([transmitter.identifier isEqualToString:@"w9at-e96eq"]){
+            [self addTransmitter:transmitter];
+            [self.tableView reloadData];
+        }
     }
     
     if ((int)visit.dwellTime % 5 == 0){
