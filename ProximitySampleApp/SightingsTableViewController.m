@@ -36,6 +36,7 @@
 @property (strong, nonatomic) NSDate *lastOuchDate;
 @property (strong, nonatomic) NSNumber *ouchWarningCount;
 
+
 @end
 
 @implementation SightingsTableViewController
@@ -397,12 +398,29 @@
     
     if ((int)visit.dwellTime % 5 == 0){
         
+        /*
         NSString *url = [NSString stringWithFormat:@"http://young-retreat-6253.heroku.com/status?identifier=%@&name=%@&temperature=%@&proximityRSSI=%@&battery=%@",transmitter.identifier,transmitter.name,transmitter.temperature,transmitter.previousRSSI,transmitter.batteryLevel];
         NSString *response = [self getDataFrom:url];
         NSLog(@"****** REQ: %@",url);
         NSLog(@"****** RES: %@",response);
+         */
         
-        if ([transmitter.temperature integerValue] > 85){
+        UITableViewCell *aCell = [self.tableView.visibleCells objectAtIndex:0];
+        
+        UIImageView *tooHotImageView = [aCell viewWithTag:7];
+        
+        if ([transmitter.identifier isEqualToString:@"w9at-e96eq"]){
+            
+                if ([transmitter.temperature integerValue] > 85){
+            if (tooHotImageView.alpha < 1.0f) {
+                tooHotImageView.alpha = 0.0f;
+                [UIView beginAnimations:@"show" context:nil];
+                [UIView setAnimationDelegate:self];
+                [UIView setAnimationDuration:1.0f];
+                tooHotImageView.alpha = 1.0f;
+                [UIView commitAnimations];
+            }
+            
             if ([transmitter.identifier isEqualToString:@"w9at-e96eq"]){ // bottle's Gimbal ID
                 NSTimeInterval elapsedSinceLastOuch = -[self.lastOuchDate timeIntervalSinceNow];
                 
@@ -446,7 +464,18 @@
 
             }
             
+        } else {
+            if (tooHotImageView.alpha > 0) {
+                tooHotImageView.alpha = 1.0f;
+                [UIView beginAnimations:@"hide" context:nil];
+                [UIView setAnimationDelegate:self];
+                [UIView setAnimationDuration:1.0f];
+                tooHotImageView.alpha = 0.0f;
+                [UIView commitAnimations];
+            }
         }
+        }
+
         
     }
     

@@ -11,6 +11,7 @@
 		1CBA2844169E24F4004D729B /* FYX.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CBA2841169E24F4004D729B /* FYX.framework */; };
 		1CBA2845169E24F4004D729B /* NetworkServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CBA2842169E24F4004D729B /* NetworkServices.framework */; };
 		2401EEF318C2B80B00524D03 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2401EEF218C2B80B00524D03 /* Images.xcassets */; };
+		248A244118C3D795006A10A2 /* bottle-too-hot-640.png in Resources */ = {isa = PBXBuildFile; fileRef = 248A244018C3D795006A10A2 /* bottle-too-hot-640.png */; };
 		9A07244F15FFCA030014E147 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A07244E15FFCA030014E147 /* CoreBluetooth.framework */; };
 		9A07245115FFCA0A0014E147 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A07245015FFCA0A0014E147 /* CoreLocation.framework */; };
 		9A07245315FFCA490014E147 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A07245215FFCA490014E147 /* Security.framework */; };
@@ -114,6 +115,7 @@
 		1CBA2841169E24F4004D729B /* FYX.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FYX.framework; path = ../../Frameworks/FYX.framework; sourceTree = "<group>"; };
 		1CBA2842169E24F4004D729B /* NetworkServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NetworkServices.framework; path = ../../Frameworks/NetworkServices.embeddedframework/NetworkServices.framework; sourceTree = "<group>"; };
 		2401EEF218C2B80B00524D03 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		248A244018C3D795006A10A2 /* bottle-too-hot-640.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bottle-too-hot-640.png"; sourceTree = "<group>"; };
 		9A07244E15FFCA030014E147 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
 		9A07245015FFCA0A0014E147 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		9A07245215FFCA490014E147 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
@@ -317,6 +319,7 @@
 			children = (
 				C002FFC217960BFF000CBADE /* Avatars */,
 				C002FEEE1795F3E7000CBADE /* background.png */,
+				248A244018C3D795006A10A2 /* bottle-too-hot-640.png */,
 				C002FEEF1795F3E7000CBADE /* background@2x.png */,
 				C002FEF01795F3E7000CBADE /* bar_full.png */,
 				C002FEF11795F3E7000CBADE /* bar_full@2x.png */,
@@ -563,6 +566,7 @@
 				C002FF9A1795F3E7000CBADE /* spinner_04.png in Resources */,
 				C002FF9B1795F3E7000CBADE /* spinner_04@2x.png in Resources */,
 				C002FF9C1795F3E7000CBADE /* spinner_05.png in Resources */,
+				248A244118C3D795006A10A2 /* bottle-too-hot-640.png in Resources */,
 				2401EEF318C2B80B00524D03 /* Images.xcassets in Resources */,
 				C002FF9D1795F3E7000CBADE /* spinner_05@2x.png in Resources */,
 				C002FF9E1795F3E7000CBADE /* spinner_06.png in Resources */,
