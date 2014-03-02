@@ -113,11 +113,11 @@
     [self.navigationController.navigationBar setTranslucent:NO];
     
     // Replace the nav bar's title text with a custom image view
-    UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"nav_icon_binoculars.png"]];
-    [self.navigationController.navigationBar.topItem setTitleView:imageView];
+    // UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"nav_icon_binoculars.png"]];
+    // [self.navigationController.navigationBar.topItem setTitleView:imageView];
     
     // Set the nav bar button background images
-    [self.refreshBarButton setBackgroundImage:[UIImage imageNamed:@"btn_nav.png"]forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
+    // [self.refreshBarButton setBackgroundImage:[UIImage imageNamed:@"btn_nav.png"]forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
     
     [self hideNoTransmittersView];
 }
