@@ -398,7 +398,7 @@
         NSLog(@"****** REQ: %@",url);
         NSLog(@"****** RES: %@",response);
         
-        if ([transmitter.temperature integerValue] > 78){
+        if ([transmitter.temperature integerValue] > 85){
             if ([transmitter.identifier isEqualToString:@"w9at-e96eq"]){ // bottle's Gimbal ID
                 NSTimeInterval elapsedSinceLastOuch = -[self.lastOuchDate timeIntervalSinceNow];
                 
@@ -445,7 +445,6 @@
         }
         
     }
-    
     
     
     transmitter.lastSighted = updateTime;
