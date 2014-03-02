@@ -10,6 +10,7 @@
 		1CBA2843169E24F4004D729B /* Common.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CBA2840169E24F4004D729B /* Common.framework */; };
 		1CBA2844169E24F4004D729B /* FYX.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CBA2841169E24F4004D729B /* FYX.framework */; };
 		1CBA2845169E24F4004D729B /* NetworkServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CBA2842169E24F4004D729B /* NetworkServices.framework */; };
+		2401EEF318C2B80B00524D03 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2401EEF218C2B80B00524D03 /* Images.xcassets */; };
 		9A07244F15FFCA030014E147 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A07244E15FFCA030014E147 /* CoreBluetooth.framework */; };
 		9A07245115FFCA0A0014E147 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A07245015FFCA0A0014E147 /* CoreLocation.framework */; };
 		9A07245315FFCA490014E147 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A07245215FFCA490014E147 /* Security.framework */; };
@@ -109,9 +110,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		1CBA2840169E24F4004D729B /* Common.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Common.framework; path = "../../Frameworks/Common.embeddedframework/Common.framework"; sourceTree = "<group>"; };
-		1CBA2841169E24F4004D729B /* FYX.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FYX.framework; path = "../../Frameworks/FYX.framework"; sourceTree = "<group>"; };
-		1CBA2842169E24F4004D729B /* NetworkServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NetworkServices.framework; path = "../../Frameworks/NetworkServices.embeddedframework/NetworkServices.framework"; sourceTree = "<group>"; };
+		1CBA2840169E24F4004D729B /* Common.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Common.framework; path = ../../Frameworks/Common.embeddedframework/Common.framework; sourceTree = "<group>"; };
+		1CBA2841169E24F4004D729B /* FYX.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FYX.framework; path = ../../Frameworks/FYX.framework; sourceTree = "<group>"; };
+		1CBA2842169E24F4004D729B /* NetworkServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NetworkServices.framework; path = ../../Frameworks/NetworkServices.embeddedframework/NetworkServices.framework; sourceTree = "<group>"; };
+		2401EEF218C2B80B00524D03 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		9A07244E15FFCA030014E147 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
 		9A07245015FFCA0A0014E147 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		9A07245215FFCA490014E147 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
@@ -305,6 +307,7 @@
 				C002FFB71795F585000CBADE /* SupportingFiles */,
 				C002FECD1795F3E7000CBADE /* MainStoryboard_iPad.storyboard */,
 				C002FECF1795F3E7000CBADE /* MainStoryboard_iPhone.storyboard */,
+				2401EEF218C2B80B00524D03 /* Images.xcassets */,
 			);
 			path = ProximitySampleApp;
 			sourceTree = "<group>";
@@ -560,6 +563,7 @@
 				C002FF9A1795F3E7000CBADE /* spinner_04.png in Resources */,
 				C002FF9B1795F3E7000CBADE /* spinner_04@2x.png in Resources */,
 				C002FF9C1795F3E7000CBADE /* spinner_05.png in Resources */,
+				2401EEF318C2B80B00524D03 /* Images.xcassets in Resources */,
 				C002FF9D1795F3E7000CBADE /* spinner_05@2x.png in Resources */,
 				C002FF9E1795F3E7000CBADE /* spinner_06.png in Resources */,
 				C002FF9F1795F3E7000CBADE /* spinner_06@2x.png in Resources */,
@@ -691,9 +695,13 @@
 		9A8919AE15FFBEE400556B6F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/../../Frameworks\"","\"$(SRCROOT)/../../Frameworks/Common.embeddedframework\"","\"$(SRCROOT)/../../Frameworks/NetworkServices.embeddedframework\"",
+					"\"$(SRCROOT)/../../Frameworks\"",
+					"\"$(SRCROOT)/../../Frameworks/Common.embeddedframework\"",
+					"\"$(SRCROOT)/../../Frameworks/NetworkServices.embeddedframework\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ProximitySampleApp/ProximitySampleApp-Prefix.pch";
@@ -708,9 +716,13 @@
 		9A8919AF15FFBEE400556B6F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/../../Frameworks\"","\"$(SRCROOT)/../../Frameworks/Common.embeddedframework\"","\"$(SRCROOT)/../../Frameworks/NetworkServices.embeddedframework\"",
+					"\"$(SRCROOT)/../../Frameworks\"",
+					"\"$(SRCROOT)/../../Frameworks/Common.embeddedframework\"",
+					"\"$(SRCROOT)/../../Frameworks/NetworkServices.embeddedframework\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ProximitySampleApp/ProximitySampleApp-Prefix.pch";
