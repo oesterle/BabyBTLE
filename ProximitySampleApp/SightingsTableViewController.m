@@ -405,21 +405,31 @@
         NSLog(@"****** RES: %@",response);
          */
         
-        UITableViewCell *aCell = [self.tableView.visibleCells objectAtIndex:0];
         
-        UIImageView *tooHotImageView = [aCell viewWithTag:7];
+        UITableViewCell *aCell;
+        UIImageView *tooHotImageView = NULL;
+        
+        if ([self.tableView.visibleCells count] > 0) {
+        
+            aCell = [self.tableView.visibleCells objectAtIndex:0];
+        
+            tooHotImageView = [aCell viewWithTag:7];
+        }
         
         if ([transmitter.identifier isEqualToString:@"w9at-e96eq"]){
             
                 if ([transmitter.temperature integerValue] > 85){
-            if (tooHotImageView.alpha < 1.0f) {
-                tooHotImageView.alpha = 0.0f;
-                [UIView beginAnimations:@"show" context:nil];
-                [UIView setAnimationDelegate:self];
-                [UIView setAnimationDuration:1.0f];
-                tooHotImageView.alpha = 1.0f;
-                [UIView commitAnimations];
-            }
+                    if (tooHotImageView) {
+                        if (tooHotImageView.alpha < 1.0f) {
+                            tooHotImageView.alpha = 0.0f;
+                            [UIView beginAnimations:@"show" context:nil];
+                            [UIView setAnimationDelegate:self];
+                            [UIView setAnimationDuration:1.0f];
+                            tooHotImageView.alpha = 1.0f;
+                            [UIView commitAnimations];
+                        }
+                    }
+            
             
             if ([transmitter.identifier isEqualToString:@"w9at-e96eq"]){ // bottle's Gimbal ID
                 NSTimeInterval elapsedSinceLastOuch = -[self.lastOuchDate timeIntervalSinceNow];
@@ -464,15 +474,19 @@
 
             }
             
+                    
         } else {
-            if (tooHotImageView.alpha > 0) {
-                tooHotImageView.alpha = 1.0f;
-                [UIView beginAnimations:@"hide" context:nil];
-                [UIView setAnimationDelegate:self];
-                [UIView setAnimationDuration:1.0f];
-                tooHotImageView.alpha = 0.0f;
-                [UIView commitAnimations];
+            if (tooHotImageView) {
+                if (tooHotImageView.alpha > 0) {
+                    tooHotImageView.alpha = 1.0f;
+                    [UIView beginAnimations:@"hide" context:nil];
+                    [UIView setAnimationDelegate:self];
+                    [UIView setAnimationDuration:1.0f];
+                    tooHotImageView.alpha = 0.0f;
+                    [UIView commitAnimations];
+                }
             }
+            
         }
         }
 
